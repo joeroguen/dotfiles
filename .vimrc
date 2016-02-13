@@ -11,6 +11,13 @@ autocmd InsertEnter * highlight  CursorLine ctermbg=Magenta ctermfg=White
 " Revert Color to default when leaving Insert Mode
 autocmd InsertLeave * highlight  CursorLine ctermbg=DarkGray ctermfg=Black
 
+" Default Colors for MacVim gui
+highlight  CursorLine guibg=DarkGray guifg=White
+" Change Color when entering Insert Mode
+autocmd InsertEnter * highlight  CursorLine guibg=Magenta guifg=White
+" Revert Color to default when leaving Insert Mode
+autocmd InsertLeave * highlight  CursorLine guibg=DarkGray guifg=Black
+
 " set line numbers
 set number
 
@@ -21,18 +28,23 @@ set cursorline
 set scrolloff=100
 
 " set copy paste from vim
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " set autoindent
-set autoindent
+" set autoindent
+" set smartindent
+filetype indent on
 
 " show matching brackets when cursor is over them
 set showmatch
 
 " set tabs to 2 spaces
-set tabstop=2
-set shiftwidth=2
+" set tabstop=2
+" set shiftwidth=2
+" set expandtab
 set expandtab
+set shiftwidth=2
+set softtabstop=2
 
 " set case insensitive search
 set ignorecase
@@ -50,9 +62,13 @@ set ruler
 " set status line
 set laststatus=2
 
+" keymaps
+inoremap ` <C-N>
+inoremap ~ <C-P>
+
 " save folding
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+autocmd BufWinLeave *.* mkview!
+autocmd BufWinEnter *.* silent loadview
 
 " remove trailing whitespace on save
 fun! <SID>StripTrailingWhitespaces()
@@ -63,12 +79,12 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
+" needed for installed plugins to work
+filetype plugin on
+
 " set pathogen
 execute pathogen#infect()
 filetype plugin indent on
-
-" needed for installed plugins to work
-filetype plugin on
 
 " recommended options for syntastic
 set statusline+=%#warningmsg#
