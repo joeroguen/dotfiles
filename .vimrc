@@ -4,19 +4,19 @@ colo darkZ_modified
 " enable syntax highlighting
 syntax on
 
-" Default Colors for CursorLine
-highlight  CursorLine ctermbg=DarkGray ctermfg=White
+" Default Colors for CursorLine in the terminal
+highlight  CursorLine ctermbg=NONE
 " Change Color when entering Insert Mode
 autocmd InsertEnter * highlight  CursorLine ctermbg=Magenta ctermfg=White
 " Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * highlight  CursorLine ctermbg=DarkGray ctermfg=Black
+autocmd InsertLeave * highlight  CursorLine ctermbg=NONE
 
-" Default Colors for MacVim gui
-highlight  CursorLine guibg=DarkGray guifg=White
+" Default Colors for CursorLine in MacVim gui
+highlight  CursorLine guibg=NONE
 " Change Color when entering Insert Mode
 autocmd InsertEnter * highlight  CursorLine guibg=Magenta guifg=White
 " Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * highlight  CursorLine guibg=DarkGray guifg=Black
+autocmd InsertLeave * highlight  CursorLine guibg=NONE
 
 " set line numbers
 set number
@@ -53,6 +53,9 @@ set smartcase
 " set highlight search results
 set hlsearch
 
+" set incremental search
+set incsearch
+
 " prevent cursor from going to first character of a line when moving
 " set startofline
 
@@ -62,11 +65,15 @@ set ruler
 " set status line
 set laststatus=2
 
+" remap leader key
+let mapleader= ","
+
 " keymaps
 inoremap ` <C-N>
 inoremap ~ <C-P>
+noremap g gg
+noremap gg <S-G>
 
-" save folding
 autocmd BufWinLeave *.* mkview!
 autocmd BufWinEnter *.* silent loadview
 
