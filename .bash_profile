@@ -25,4 +25,6 @@ alias backupsnippets='cp -rf ~/.vim/bundle/vim-snipmate/snippets ~/Documents/pro
 alias htdocs='clear && c /Applications/MAMP/htdocs'
 alias chrome='open -a "Google Chrome"'
 alias filesize='du -sh *'
-alias b='cd ../'
+alias b='cd ../ && ls'
+alias wifion='networksetup -setairportpower en0 on'
+alias wifioff='networksetup -setairportpower en0 off'
