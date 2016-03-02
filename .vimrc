@@ -73,6 +73,11 @@ inoremap ` <C-N>
 inoremap ~ <C-P>
 noremap g gg
 noremap gg <S-G>
+noremap [ <C-U>
+noremap ] <C-D>
+noremap <Space> .
+noremap $ 0
+noremap 0 $
 
 autocmd BufWinLeave *.* mkview!
 autocmd BufWinEnter *.* silent loadview
@@ -85,6 +90,9 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" save vCoolor hex colors as lowercase
+let g:vcoolor_lowercase = 1
 
 " needed for installed plugins to work
 filetype plugin on
