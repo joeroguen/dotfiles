@@ -66,7 +66,8 @@ set ruler
 set laststatus=2
 
 " remap leader key
-let mapleader= ","
+"let mapleader= ","
+let mapleader= " "
 
 " keymaps
 inoremap ` <C-N>
@@ -75,7 +76,7 @@ noremap g gg
 noremap gg <S-G>
 noremap [ <C-U>
 noremap ] <C-D>
-noremap <Space> .
+"noremap <Space> .
 noremap $ 0
 noremap 0 $
 
