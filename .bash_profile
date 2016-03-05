@@ -2,7 +2,8 @@ export JAVA_HOME=$(/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Ho
 export PATH=$JAVA_HOME/bin:$PATH
 
 export CLICOLOR=1
-export LSCOLORS=EhFxBxDxCxegedabagacad
+#export LSCOLORS=EhFxBxDxCxegedabagacad
+export LSCOLORS=agfxcxdxhxehhdhbagachd
 
 c() { cd "$@" && clear && ls -1ap; }
 
@@ -28,4 +29,5 @@ alias filesize='du -sh *'
 alias b='cd ../ && ls'
 alias wifion='networksetup -setairportpower en0 on'
 alias wifioff='networksetup -setairportpower en0 off'
-alias cheat='cd ~/Documents/projectz/tools/ && cat cheat-sheet-bash.txt'
+alias cheat='clear && cat ~/Documents/projectz/tools/cheat-sheet-bash.txt'
+alias blog='clear && cd ~/Documents/projectz/websites/blog/ && ls -1a'
