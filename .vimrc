@@ -1,5 +1,5 @@
 " color scheme
-colo darkZ_modified
+colo joeroguen
 
 " enable syntax highlighting
 syntax on
@@ -17,6 +17,12 @@ highlight  CursorLine guibg=NONE
 autocmd InsertEnter * highlight  CursorLine guibg=Magenta guifg=White
 " Revert Color to default when leaving Insert Mode
 autocmd InsertLeave * highlight  CursorLine guibg=NONE
+
+" set foldmethod indent
+set foldcolumn=4
+augroup vimrc
+  au BufReadPre * setlocal foldmethod=indent
+augroup END
 
 " set line numbers
 set number
