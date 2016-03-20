@@ -4,15 +4,8 @@ colo joeroguen
 " enable syntax highlighting
 syntax on
 
-" Default Colors for CursorLine in the terminal
-highlight  CursorLine ctermbg=NONE
-" Change Color when entering Insert Mode
-autocmd InsertEnter * highlight  CursorLine ctermbg=Magenta ctermfg=White
-" Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * highlight  CursorLine ctermbg=NONE
-
 " Default Colors for CursorLine in MacVim gui
-highlight  CursorLine guibg=NONE
+highlight CursorLine guibg=NONE
 " Change Color when entering Insert Mode
 autocmd InsertEnter * highlight  CursorLine guibg=Magenta guifg=White
 " Revert Color to default when leaving Insert Mode
@@ -23,9 +16,6 @@ set foldcolumn=4
 augroup vimrc
   au BufReadPre * setlocal foldmethod=indent
 augroup END
-
-" set line numbers
-set number
 
 " Enable CursorLine
 set cursorline
@@ -62,9 +52,6 @@ set hlsearch
 " set incremental search
 set incsearch
 
-" prevent cursor from going to first character of a line when moving
-" set startofline
-
 " set ruler
 set ruler
 
@@ -72,8 +59,10 @@ set ruler
 set laststatus=2
 
 " remap leader key
-"let mapleader= ","
 let mapleader= " "
+
+" set line numbers
+set relativenumber
 
 " keymaps
 inoremap ` <C-N>
@@ -82,9 +71,9 @@ noremap g gg
 noremap gg <S-G>
 noremap [ <C-U>
 noremap ] <C-D>
-"noremap <Space> .
 noremap $ 0
 noremap 0 $
+noremap Z .
 
 autocmd BufWinLeave *.* mkview!
 autocmd BufWinEnter *.* silent loadview
