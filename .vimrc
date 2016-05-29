@@ -1,13 +1,17 @@
 " color scheme
 colo joeroguen
 
+" set font size
+set guifont=Menlo:h14
+
 " enable syntax highlighting
 syntax on
 
 " Default Colors for CursorLine in MacVim gui
 highlight CursorLine guibg=NONE
 " Change Color when entering Insert Mode
-autocmd InsertEnter * highlight  CursorLine guibg=Magenta guifg=White
+" autocmd InsertEnter * highlight  CursorLine guibg=Magenta guifg=White
+autocmd InsertEnter * highlight  CursorLine guibg=Magenta
 " Revert Color to default when leaving Insert Mode
 autocmd InsertLeave * highlight  CursorLine guibg=NONE
 
@@ -27,7 +31,7 @@ set scrolloff=100
 set clipboard=unnamed
 
 " set autoindent
-" set autoindent
+set autoindent
 " set smartindent
 filetype indent on
 
@@ -65,15 +69,19 @@ let mapleader= " "
 set relativenumber
 
 " keymaps
-inoremap ` <C-N>
+" inoremap ` <C-N>
+inoremap ff <C-N>
 inoremap ~ <C-P>
-noremap g gg
-noremap gg <S-G>
-noremap [ <C-U>
-noremap ] <C-D>
+inoremap vv <Esc>
+vnoremap vv <Esc>
+" noremap [ <C-U>
+noremap M <C-U>
+" noremap ] <C-D>
+noremap m <C-D>
 noremap $ 0
 noremap 0 $
 noremap Z .
+noremap <NL> i<CR><ESC>
 
 autocmd BufWinLeave *.* mkview!
 autocmd BufWinEnter *.* silent loadview
@@ -98,7 +106,7 @@ execute pathogen#infect()
 filetype plugin indent on
 
 " recommended options for syntastic
-set statusline+=%#warningmsg#
+" set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
