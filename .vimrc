@@ -1,86 +1,93 @@
-" color scheme
-colo joeroguen
-
-" set font size
-set guifont=Menlo:h14
-
-" enable syntax highlighting
-syntax on
-
-" Default Colors for CursorLine in MacVim gui
+colo Benokai " color scheme
+let g:rehash256 = 1
+set guifont=Menlo:h12 " set font size
+set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
+syntax on " enable syntax highlighting
+highlight iCursor guifg=Red guibg=Red
+set guicursor=i:ver50-iCursor
+set cursorline
 highlight CursorLine guibg=NONE
-" Change Color when entering Insert Mode
 " autocmd InsertEnter * highlight  CursorLine guibg=Magenta guifg=White
-autocmd InsertEnter * highlight  CursorLine guibg=Magenta
-" Revert Color to default when leaving Insert Mode
+autocmd InsertEnter * highlight  CursorLine guibg=Black
 autocmd InsertLeave * highlight  CursorLine guibg=NONE
 
-" set foldmethod indent
-set foldcolumn=4
+set foldcolumn=4 " set foldmethod indent
 augroup vimrc
   au BufReadPre * setlocal foldmethod=indent
 augroup END
 
-" Enable CursorLine
-set cursorline
+set scrolloff=100 " auto center the screen
 
-" auto center the screen
-set scrolloff=100
+set clipboard=unnamed " set copy paste from vim
 
-" set copy paste from vim
-set clipboard=unnamed
-
-" set autoindent
 set autoindent
 " set smartindent
 filetype indent on
 
-" show matching brackets when cursor is over them
-set showmatch
+set showmatch " show matching brackets when cursor is over them
 
-" set tabs to 2 spaces
 " set tabstop=2
-" set shiftwidth=2
-" set expandtab
 set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-" set case insensitive search
-set ignorecase
+set ignorecase " set case insensitive search
 set smartcase
+set hlsearch " set highlight search results
+set incsearch " set incremental search
 
-" set highlight search results
-set hlsearch
-
-" set incremental search
-set incsearch
-
-" set ruler
+set relativenumber
+set number
 set ruler
+set laststatus=2 " set status line
+set linespace=10
 
-" set status line
-set laststatus=2
+if version >= 700
+  au InsertEnter * hi StatusLine guifg=Black guibg=Red
+  au InsertLeave * hi StatusLine guifg=Black guibg=White
+endif
 
-" remap leader key
 let mapleader= " "
 
-" set line numbers
-set relativenumber
+nmap f <Plug>(easymotion-s)
+let g:EasyMotion_smartcase = 1
 
-" keymaps
 " inoremap ` <C-N>
+inoremap dd <C-X><C-K>
 inoremap ff <C-N>
-inoremap ~ <C-P>
+inoremap gg <C-X><C-O>
 inoremap vv <Esc>
 vnoremap vv <Esc>
+cnoremap vv <Esc>
+xnoremap vv <Esc>
+snoremap vv <Esc>
+onoremap vv <Esc>
 " noremap [ <C-U>
-noremap M <C-U>
 " noremap ] <C-D>
+" noremap g gg
+" noremap gg G
+noremap M <C-U>
 noremap m <C-D>
+noremap ! m
 noremap $ 0
 noremap 0 $
-noremap Z .
+noremap \ .
+" noremap <Leader>r .
+" noremap <Tab> >>
+" vnoremap <Tab> >>
+" xnoremap <Tab> >>
+" inoremap <S-Tab> <C-D>
+" noremap <S-Tab> <<
+" vnoremap <S-Tab> <<
+" xnoremap <S-Tab> <<
+
+" Quicker window movement
+noremap <Leader>j <C-w>j
+noremap <Leader>k <C-w>k
+noremap <Leader>h <C-w>h
+noremap <Leader>l <C-w>l
+
+" splits lines in normal mode using ctrl+j
 noremap <NL> i<CR><ESC>
 
 autocmd BufWinLeave *.* mkview!
@@ -95,23 +102,18 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-" save vCoolor hex colors as lowercase
-let g:vcoolor_lowercase = 1
+filetype plugin on " needed for installed plugins to work
 
-" needed for installed plugins to work
-filetype plugin on
-
-" set pathogen
 execute pathogen#infect()
 filetype plugin indent on
 
-" recommended options for syntastic
-" set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{SyntasticStatuslineFlag()} " recommended options for syntastic
 set statusline+=%*
+" set statusline+=%#warningmsg#
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_css_checkers = ['csslint']
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_php_checkers = ['eslint']
