@@ -71,7 +71,12 @@ noremap m <C-D>
 noremap ! m
 noremap $ 0
 noremap 0 $
-noremap \ .
+" noremap \ .
+noremap \ /
+" noremap <Leader>s /
+noremap , .
+" noremap \ <S-Tab>
+" noremap <S-\> <S-Tab>
 " noremap <Leader>r .
 " noremap <Tab> >>
 " vnoremap <Tab> >>
@@ -90,6 +95,9 @@ noremap <Leader>l <C-w>l
 " splits lines in normal mode using ctrl+j
 noremap <NL> i<CR><ESC>
 
+" tabbar plugin
+nmap <Leader><Tab> :TagbarToggle<CR>
+
 autocmd BufWinLeave *.* mkview!
 autocmd BufWinEnter *.* silent loadview
 
@@ -103,6 +111,7 @@ endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 filetype plugin on " needed for installed plugins to work
+
 
 execute pathogen#infect()
 filetype plugin indent on
