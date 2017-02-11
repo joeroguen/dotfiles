@@ -1,6 +1,8 @@
+set encoding=utf-8
 colo Benokai " color scheme
 let g:rehash256 = 1
-set guifont=Menlo:h12 " set font size
+"set guifont=Menlo:h12 " set font size
+set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h13 " set font size
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 syntax on " enable syntax highlighting
 highlight iCursor guifg=Red guibg=Red
@@ -26,6 +28,36 @@ filetype indent on
 
 set showmatch " show matching brackets when cursor is over them
 
+" air-line
+let g:airline_powerline_fonts = 1
+"
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+"
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+"
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
 " set tabstop=2
 set expandtab
 set shiftwidth=2
@@ -40,12 +72,13 @@ set relativenumber
 set number
 set ruler
 set laststatus=2 " set status line
-set linespace=10
+" set linespace=10
 
-if version >= 700
-  au InsertEnter * hi StatusLine guifg=Black guibg=Red
-  au InsertLeave * hi StatusLine guifg=Black guibg=White
-endif
+" custom statusline, changes to red when in insert mode
+"if version >= 700
+"  au InsertEnter * hi StatusLine guifg=Black guibg=Red
+"  au InsertLeave * hi StatusLine guifg=Black guibg=White
+"endif
 
 let mapleader= " "
 
