@@ -1,62 +1,63 @@
 set encoding=utf-8
 colo Benokai " color scheme
 let g:rehash256 = 1
-"set guifont=Menlo:h12 " set font size
-set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h13 " set font size
+set guifont=Menlo:h12 " set font size
+" set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h13 " set font size
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 syntax on " enable syntax highlighting
 highlight iCursor guifg=Red guibg=Red
 set guicursor=i:ver50-iCursor
+set guioptions-=r "remove scrollbar
 set cursorline
 highlight CursorLine guibg=NONE
 " autocmd InsertEnter * highlight  CursorLine guibg=Magenta guifg=White
 autocmd InsertEnter * highlight  CursorLine guibg=Black
 autocmd InsertLeave * highlight  CursorLine guibg=NONE
+set omnifunc=syntaxcomplete#Complete
 
-set foldcolumn=4 " set foldmethod indent
-augroup vimrc
-  au BufReadPre * setlocal foldmethod=indent
-augroup END
+" augroup vimrc
+"   au BufReadPre * setlocal foldmethod=indent
+" augroup END
+set foldcolumn=0 " 0 removes fold column on left side of screen
 
 set scrolloff=100 " auto center the screen
 
 set clipboard=unnamed " set copy paste from vim
 
 set autoindent
-" set smartindent
+set smartindent
 filetype indent on
 
 set showmatch " show matching brackets when cursor is over them
 
-" air-line
-let g:airline_powerline_fonts = 1
+"" air-line
+"let g:airline_powerline_fonts = 1
+"if !exists('g:airline_symbols')
+"    let g:airline_symbols = {}
+"endif
 "
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+""" unicode symbols
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.whitespace = 'Ξ'
 "
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-"
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+""" airline symbols
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ''
 
 " set tabstop=2
 set expandtab
@@ -72,41 +73,41 @@ set relativenumber
 set number
 set ruler
 set laststatus=2 " set status line
-" set linespace=10
+set linespace=7 " used for custom red status bar
 
 " custom statusline, changes to red when in insert mode
-"if version >= 700
-"  au InsertEnter * hi StatusLine guifg=Black guibg=Red
-"  au InsertLeave * hi StatusLine guifg=Black guibg=White
-"endif
+if version >= 700
+  au InsertEnter * hi StatusLine guifg=Black guibg=Red
+  au InsertLeave * hi StatusLine guifg=Gray guibg=Black
+endif
 
 let mapleader= " "
 
 nmap f <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
 
-" inoremap ` <C-N>
-inoremap dd <C-X><C-K>
+inoremap ddd <C-X><C-K>
 inoremap ff <C-N>
 inoremap gg <C-X><C-O>
 inoremap vv <Esc>
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap ( ()<Left>
+inoremap ' ''<Left>
+inoremap " ""<Left>
 vnoremap vv <Esc>
 cnoremap vv <Esc>
 xnoremap vv <Esc>
 snoremap vv <Esc>
 onoremap vv <Esc>
-" noremap [ <C-U>
-" noremap ] <C-D>
-" noremap g gg
-" noremap gg G
 noremap M <C-U>
 noremap m <C-D>
+noremap <Leader>M <S-{>
+noremap <Leader>m <S-}>
 noremap ! m
 noremap $ 0
 noremap 0 $
-" noremap \ .
 noremap \ /
-" noremap <Leader>s /
 noremap , .
 " noremap \ <S-Tab>
 " noremap <S-\> <S-Tab>

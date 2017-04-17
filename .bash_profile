@@ -61,6 +61,7 @@ alias woff='networksetup -setairportpower en0 off'
 alias cheat='clear && cat ~/Documents/projectz/tools/cheat-sheet-bash.txt'
 alias blog='clear && cd ~/Documents/projectz/websites/blog/ && ls -1a'
 alias dropbox='clear && cd ~/Dropbox/Graphics/trail-maps/2016/ && ls -la'
+alias tags='ctags -R .'
 
 # Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
 export COCOS_CONSOLE_ROOT=/Applications/cocos2d-x-3.12/tools/cocos2d-console/bin
