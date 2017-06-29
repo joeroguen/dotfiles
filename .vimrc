@@ -1,7 +1,7 @@
 set encoding=utf-8
 colo Benokai " color scheme
 let g:rehash256 = 1
-set guifont=Menlo:h12 " set font size
+set guifont=Menlo:h13 " set font size
 " set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h13 " set font size
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 syntax on " enable syntax highlighting
@@ -85,6 +85,9 @@ let mapleader= " "
 
 nmap f <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
+hi EasyMotionTarget guibg=yellow guifg=black
+hi EasyMotionShade  guifg=dimgray
+let g:EasyMotion_off_screen_search = 0
 
 inoremap ddd <C-X><C-K>
 inoremap ff <C-N>
@@ -93,7 +96,7 @@ inoremap vv <Esc>
 inoremap { {}<Left>
 inoremap [ []<Left>
 inoremap ( ()<Left>
-inoremap ' ''<Left>
+"inoremap ' ''<Left>
 inoremap " ""<Left>
 vnoremap vv <Esc>
 cnoremap vv <Esc>
@@ -126,6 +129,10 @@ noremap <Leader>k <C-w>k
 noremap <Leader>h <C-w>h
 noremap <Leader>l <C-w>l
 
+" resize buffers
+noremap - <C-w>-
+noremap + <C-w>+
+
 " splits lines in normal mode using ctrl+j
 noremap <NL> i<CR><ESC>
 
@@ -145,8 +152,6 @@ endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 filetype plugin on " needed for installed plugins to work
-
-
 execute pathogen#infect()
 filetype plugin indent on
 

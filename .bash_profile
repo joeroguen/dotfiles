@@ -50,8 +50,9 @@ alias chrome='open -a "Google Chrome"'
 alias edit='open -a "TextEdit"'
 alias filesize='du -sh *'
 alias b='cd ../ && ls'
+alias corona='clear && c ~/Documents/projectz/games/game-faith-corona/'
 alias game='clear && c ~/Documents/projectz/games/game-faith-card-game/development/'
-alias gamebegin='chrome index.html && atom . && cd ../ && grunt watch'
+alias gamebegin='chrome index.html && cd scripts/ && m main.js && cd ../../ && grunt watch'
 alias corona='clear && c ~/Documents/projectz/games/game-faith-corona/'
 alias beans='clear && open "/Applications/NetBeans/NetBeans 8.1.app"'
 alias desk='clear && c ~/Desktop'
@@ -87,3 +88,8 @@ export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 # Add environment variable ANT_ROOT for cocos2d-x
 export ANT_ROOT=/Applications/apache-ant-1.9.7/bin
 export PATH=$ANT_ROOT:$PATH
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
