@@ -1,5 +1,10 @@
 set encoding=utf-8
-colo Benokai " color scheme
+" colo Benokai " color scheme
+set background=dark
+set termguicolors
+colorscheme material-monokai
+
+set transparency=2
 let g:rehash256 = 1
 set guifont=Menlo:h13 " set font size
 " set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h13 " set font size
@@ -61,8 +66,8 @@ set showmatch " show matching brackets when cursor is over them
 
 " set tabstop=2
 set expandtab
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 
 set ignorecase " set case insensitive search
 set smartcase
@@ -91,6 +96,7 @@ let g:EasyMotion_off_screen_search = 0
 
 inoremap ddd <C-X><C-K>
 inoremap ff <C-N>
+inoremap FF <C-X><C-F>
 inoremap gg <C-X><C-O>
 inoremap vv <Esc>
 inoremap { {}<Left>
