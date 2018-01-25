@@ -64,10 +64,10 @@ set showmatch " show matching brackets when cursor is over them
 "let g:airline_symbols.readonly = ''
 "let g:airline_symbols.linenr = ''
 
-" set tabstop=2
+set tabstop=2
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 
 set ignorecase " set case insensitive search
 set smartcase
@@ -97,6 +97,7 @@ let g:EasyMotion_off_screen_search = 0
 inoremap ddd <C-X><C-K>
 inoremap ff <C-N>
 inoremap FF <C-X><C-F>
+inoremap LL <C-X><C-l>
 inoremap gg <C-X><C-O>
 inoremap vv <Esc>
 inoremap { {}<Left>
@@ -109,6 +110,7 @@ cnoremap vv <Esc>
 xnoremap vv <Esc>
 snoremap vv <Esc>
 onoremap vv <Esc>
+noremap s ciw
 noremap M <C-U>
 noremap m <C-D>
 noremap <Leader>M <S-{>
@@ -168,6 +170,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_html_tidy_ignore_errors = ['trimming empty <style>']
+let g:syntastic_html_tidy_ignore_errors = ['trimming empty <i>']
 let g:syntastic_css_checkers = ['csslint']
 let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_php_checkers = ['eslint']
+let g:syntastic_php_checkers = ['php'] " also phpcs, phpmd

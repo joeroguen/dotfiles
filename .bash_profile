@@ -1,3 +1,4 @@
+set -o vi
 set completion-ignore-case On
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -25,11 +26,13 @@ export PS1="
 ============================================================================
 : "
 
+alias newf='touch'
+alias newd='mkdir'
 alias cpf='cp'
 alias cpd='cp -rf'
 alias ren='mv'
-alias movef='mv'
-alias moved='mv -f'
+alias mvf='mv'
+alias mvd='mv -f'
 alias delf='rm'
 alias deld='rm -rf'
 alias ls='clear && ls -1a -F'
@@ -41,20 +44,24 @@ alias grep='clear && grep -i -n'
 alias v='vi'
 alias m='mvim'
 alias drives='cd /Volumes && ls'
-alias tests='clear && c ~/Desktop/tests/'
+alias gitlog='git log --pretty=format:%cD__%Cred%h%Creset__%s'
+alias test='clear && c ~/Desktop/tests/'
 alias docs='clear && c ~/Documents'
 alias dev='clear && c /Applications/MAMP/htdocs'
 alias webdev='clear && c /Applications/MAMP/htdocs'
+alias webapp='git clone https://github.com/joeroguen/template-web-app.git'
 alias wp='clear && c /Applications/MAMP/htdocs/wordpress/wp-content/themes'
 alias snips='clear && c ~/.vim/bundle/vim-snipmate/snippets/'
 alias backupdotfiles='cp ~/.vimrc ~/Documents/projectz/dotfiles && cp ~/.bash_profile ~/Documents/projectz/dotfiles && cd ~/Documents/projectz/dotfiles && git status'
 alias backupsnippets='cp -rf ~/.vim/bundle/vim-snipmate/snippets ~/Documents/projectz/snippets && cd ~/Documents/projectz/snippets && git status'
 alias chrome='open -a "Google Chrome"'
+alias ff='open -a "FirefoxDeveloperEdition"'
 alias edit='open -a "TextEdit"'
 alias filesize='du -sh *'
 alias b='cd ../ && ls'
 alias corona='clear && c ~/Documents/projectz/games/game-faith-corona/'
-alias game='clear && c ~/Documents/projectz/games/game-faith-card-game/development/'
+alias apps='clear && c ~/Documents/projectz/apps/'
+alias game='clear && c ~/Documents/projectz/games/'
 alias gamebegin='chrome index.html && cd scripts/ && m main.js && cd ../../ && grunt watch'
 alias corona='clear && c ~/Documents/projectz/games/game-faith-corona/'
 alias beans='clear && open "/Applications/NetBeans/NetBeans 8.1.app"'
