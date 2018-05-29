@@ -23,11 +23,14 @@ set omnifunc=syntaxcomplete#Complete
 " augroup vimrc
 "   au BufReadPre * setlocal foldmethod=indent
 " augroup END
-set foldcolumn=0 " 0 removes fold column on left side of screen
 
 set scrolloff=100 " auto center the screen
 
 set clipboard=unnamed " set copy paste from vim
+
+" focus new split windows to below and right
+set splitbelow
+set splitright
 
 set autoindent
 set smartindent
@@ -64,10 +67,10 @@ set showmatch " show matching brackets when cursor is over them
 "let g:airline_symbols.readonly = ''
 "let g:airline_symbols.linenr = ''
 
-set tabstop=2
+set tabstop=4
 set expandtab
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 
 set ignorecase " set case insensitive search
 set smartcase
@@ -103,20 +106,19 @@ inoremap vv <Esc>
 inoremap { {}<Left>
 inoremap [ []<Left>
 inoremap ( ()<Left>
-"inoremap ' ''<Left>
+inoremap ' ''<Left>
 inoremap " ""<Left>
 vnoremap vv <Esc>
 cnoremap vv <Esc>
 xnoremap vv <Esc>
 snoremap vv <Esc>
 onoremap vv <Esc>
-noremap s ciw
 noremap M <C-U>
 noremap m <C-D>
 noremap <Leader>M <S-{>
 noremap <Leader>m <S-}>
 noremap ! m
-noremap $ 0
+noremap ! ^
 noremap 0 $
 noremap \ /
 noremap , .
@@ -164,7 +166,7 @@ execute pathogen#infect()
 filetype plugin indent on
 
 set statusline+=%{SyntasticStatuslineFlag()} " recommended options for syntastic
-set statusline+=%*
+"set statusline+=%*
 " set statusline+=%#warningmsg#
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -175,3 +177,6 @@ let g:syntastic_html_tidy_ignore_errors = ['trimming empty <i>']
 let g:syntastic_css_checkers = ['csslint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_php_checkers = ['php'] " also phpcs, phpmd
+
+set fdc=0
+set foldcolumn=0 " 0 removes fold column on left side of screen

@@ -1,4 +1,6 @@
-set -o vi
+#vi mode
+# set -o vi
+
 set completion-ignore-case On
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -12,7 +14,6 @@ export LSCOLORS=agfxcxdxhxehhdhbagachd
 
 
 
-c() { cd "$@" && clear && ls -1ap; }
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
@@ -25,6 +26,11 @@ export PS1="
 \w
 ============================================================================
 : "
+
+c() { cd "$@" && clear && ls -1ap; }
+resize() {
+  convert $1 -resize $2 new-$1
+}
 
 alias newf='touch'
 alias newd='mkdir'
@@ -43,6 +49,7 @@ alias cd='clear && cd'
 alias grep='clear && grep -i -n'
 alias v='vi'
 alias m='mvim'
+alias view='m -M'
 alias drives='cd /Volumes && ls'
 alias gitlog='git log --pretty=format:%cD__%Cred%h%Creset__%s'
 alias test='clear && c ~/Desktop/tests/'
@@ -59,11 +66,9 @@ alias ff='open -a "FirefoxDeveloperEdition"'
 alias edit='open -a "TextEdit"'
 alias filesize='du -sh *'
 alias b='cd ../ && ls'
-alias corona='clear && c ~/Documents/projectz/games/game-faith-corona/'
 alias apps='clear && c ~/Documents/projectz/apps/'
-alias game='clear && c ~/Documents/projectz/games/'
-alias gamebegin='chrome index.html && cd scripts/ && m main.js && cd ../../ && grunt watch'
-alias corona='clear && c ~/Documents/projectz/games/game-faith-corona/'
+alias games='clear && c ~/Documents/projectz/games/'
+alias gamedev='chrome index.html && cd scripts/ && m main.js && cd ../../ && grunt watch'
 alias beans='clear && open "/Applications/NetBeans/NetBeans 8.1.app"'
 alias desk='clear && c ~/Desktop'
 alias down='clear && c ~/Downloads/'
