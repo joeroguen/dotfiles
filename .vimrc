@@ -1,8 +1,8 @@
 set encoding=utf-8
-" colo Benokai " color scheme
 set background=dark
-set termguicolors
+" set termguicolors
 colorscheme material-monokai
+" colo Benokai " color scheme
 
 set transparency=2
 let g:rehash256 = 1
@@ -32,9 +32,9 @@ set clipboard=unnamed " set copy paste from vim
 set splitbelow
 set splitright
 
+"filetype indent on
 set autoindent
-set smartindent
-filetype indent on
+"set smartindent
 
 set showmatch " show matching brackets when cursor is over them
 
@@ -115,9 +115,13 @@ snoremap vv <Esc>
 onoremap vv <Esc>
 noremap M <C-U>
 noremap m <C-D>
-noremap <Leader>M <S-{>
-noremap <Leader>m <S-}>
-noremap ! m
+"format document
+noremap <Leader>format gg=G
+"display document info
+noremap <Leader>info g<C-g>
+" open file under cursor
+noremap <Leader>open <C-w>gf
+"noremap ! m
 noremap ! ^
 noremap 0 $
 noremap \ /
@@ -163,7 +167,7 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 filetype plugin on " needed for installed plugins to work
 execute pathogen#infect()
-filetype plugin indent on
+"filetype plugin indent on
 
 set statusline+=%{SyntasticStatuslineFlag()} " recommended options for syntastic
 "set statusline+=%*
